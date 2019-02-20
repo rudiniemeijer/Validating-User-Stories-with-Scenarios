@@ -4,11 +4,11 @@ browser = Browser('chrome')
 
 browser.visit("http://www.google.com")
 browser.fill('q', 'Retro website geserveerd vanaf een Raspberry Pi 3')
-button = browser.find_by_name('btnG')
+button = browser.find_by_id('gsr')
 button.click()
 
 # Alternatively
-# browser.find_by_name('btnG').click()
+# browser.find_by_id('gsr').click()
 
 if browser.is_text_present('Retro-Lab'):
   print("Found it!")
