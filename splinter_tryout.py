@@ -1,18 +1,21 @@
 from splinter import Browser
+import logging
+logging.basicConfig(level=logging.INFO)
 
 browser = Browser('chrome')
 
-browser.visit("http://www.google.com")
-browser.fill('q', 'Retro website geserveerd vanaf een Raspberry Pi 3')
-button = browser.find_by_id('gsr')
+browser.visit("https://duckduckgo.com")
+browser.fill('q', 'raspberry pi retro website')
+button = browser.find_by_id('search_button_homepage')
 button.click()
 
-# Alternatively
-# browser.find_by_id('gsr').click()
-
 if browser.is_text_present('Retro-Lab'):
-  print("Found it!")
+  logging.info("Found it!")
 else:
-  print("Did not find it!")
+  logging.warning("Did not find it!")
+
+# Alternative 
+# import hamcrest
+# assert_true(browser.html, contains_string('Retro-Lab'))
 
 browser.quit()
