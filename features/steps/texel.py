@@ -3,32 +3,33 @@ import hamcrest
 
 @given(u'I have navigated to the Texel.net website')
 def step_impl(context):
-  context.browser.visit("https://www.texel.net/en/about-texel/")
+  context.browser.visit(context.basicurl)
 
 
 @given(u'the home page is in front of me')
 def step_impl(context):
-  context.browser.visit("https://www.texel.net/en/")
+  context.browser.visit(context.basicurl)
 
 
 @given(u'I see a button with a country flag')
 def step_impl(context):
   context.execute_steps("I have navigated to the Texel.net website")
 
+  
 @when(u'I select my preferred language flag')
 def step_impl(context):
-    context.preferred_language = "en"
-    context.browser.visit("https://www.texel.net/"+context.preferred_language)
+    context.preferred_language = "en"    context.browser.visit(context.basicurl + "/" + context.userdata["preferred_language"])
 
 
 @then(u'the page is translated into my preferred language')
 def step_impl(context):
-    assert_that(context.browser.html, contains_text("WHAT'S ON"))
+    if context.userdata["preferred_language"] == "en":
+        assert_that(context.browser.html, contains_text("WHAT'S ON"))
 
 
 @given(u'I have selected the English language')
 def step_impl(context):
-    context.browser.visit("https://www.texel.net/en/")
+    context.browser.visit(context.basicurl + "/en/")
 
 
 @then(u'I see the following subjects')
