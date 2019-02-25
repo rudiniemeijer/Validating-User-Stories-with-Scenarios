@@ -13,9 +13,9 @@ button = browser.find_by_id('search_button_homepage')
 button.click()
 
 if browser.is_text_present('Retro-Lab'):
-  logging.debug("Found it!")
+  logging.info("Found it!")
 else:
-  logging.debug("Did not find it!")
+  logging.info("Did not find it!")
 
 # Alternative
 # assert_that(browser.html, contains_string('Retro-Lab'))
