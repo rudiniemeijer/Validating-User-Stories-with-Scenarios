@@ -2,10 +2,7 @@ Feature: Information is split up into subjects
 
   As a user, I want the information on the page split up in
   subjects so that I can easily find my information.
-  
-  Background:
-    Given I have navigated to the Texel.net website
-  
+    
   Scenario: Set the language
     Given the home page is in front of me
     And I see a button with a country flag 
@@ -16,12 +13,12 @@ Feature: Information is split up into subjects
     Given the home page is in front of me
     And I have selected the English language
     Then I see the following subjects
-      | option          |
-      | WHAT'S ON       |
-      | SEE AND DO      |
-      | TO TEXEL        |
-      | SPEND THE NIGHT |
-      | ABOUT TEXEL     |
+      | subject         |
+      | What's on       |
+      | See and do      |
+      | To Texel        |
+      | Spend the night |
+      | About Texel     |
 
   Scenario Outline: Visiting one of the information pages
     Given I am on the <subject> page
@@ -30,8 +27,8 @@ Feature: Information is split up into subjects
     
     Examples:
       | subject         | nugget           |
-      | WHAT'S ON       | Order tickets    |
-      | SEE AND DO      | Webcams on Texel |
-      | TO TEXEL        | By ferry         |
-      | SPEND THE NIGHT | Bungalow parks   |
-      | ABOUT TEXEL     | History          |
+      | What's on       | Order tickets    |
+      | See and do      | Webcams on Texel |
+      | To Texel        | By ferry         |
+      | Spend the night | Bungalow parks   |
+      | About Texel     | History          |
