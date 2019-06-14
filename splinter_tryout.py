@@ -5,6 +5,9 @@ import logging
 logging.basicConfig(level=logging.INFO) # logs to the screen
 
 browser = Browser('chrome') #also: 'firefox'
+#browser = Browser(browser='chrome', driver_name='./chromedriver')
+#browser = Browser(browser='chrome', driver_name='c:\chromedriver.exe')
+#browser = Browser(browser='chrome', driver_name='c:\\chromedriver.exe')
 
 browser.visit("https://duckduckgo.com")
 
